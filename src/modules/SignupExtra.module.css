@@ -1,0 +1,84 @@
+/* SignupExtra.module.css */
+.formContainer {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.inputField:focus {
+  border-color: #27ae60;
+  outline: none;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #34495e;
+}
+
+.selectField {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid #ccc;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.selectField:focus {
+  border-color: #27ae60;
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  background-color: #27ae60;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #219150;
+}
+
+.error {
+  color: #e74c3c;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.inputField[readonly] {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  color: #555;
+}

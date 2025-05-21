@@ -1,0 +1,21 @@
+---
+// src/pages/signup.astro
+import SignupForm from '../components/SignupForm.jsx';
+import '../styles/global.css';
+---
+
+<html lang="es">
+<meta charset="UTF-8" />
+  <head>
+    <title>PandaLift - Registro</title>
+  </head>
+  <body class="font-sans p-8 bg-gray-50">
+    <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+      <SignupForm client:load />
+      <p class="mt-4 text-center">
+        ¿Ya tienes cuenta?
+        <a href="/" class="text-blue-600 underline">Inicia sesión</a>
+      </p>
+    </div>
+  </body>
+</html>

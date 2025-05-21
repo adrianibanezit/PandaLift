@@ -1,0 +1,21 @@
+---
+import LogoutButton from '../components/Logout.jsx';
+import "../styles/global.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+  </head>
+  <body class="bg-gray-100">
+    <div class="p-8">
+      <h1 class="text-3xl font-bold mb-4">🏋️ Tu Panel de Halterofilia</h1>
+      <p>¡Bienvenido, atleta o entrenador! Aquí verás tu planificación.</p>
+
+      <LogoutButton client:load />
+    </div>
+
+    <script type="module" src="/src/scripts/protect.js"></script>
+  </body>
+</html>
