@@ -1,40 +1,50 @@
 ---
 // src/pages/index.astro
-import LoginForm from '../components/LoginForm.jsx';
-import GoogleLogin from "../components/GoogleLogin.jsx";
 import '../styles/global.css';
 ---
 
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bienvenido a PandaLift</title>
+    <meta name="description" content="Donde entrenadores y atletas crecen juntos. Únete a PandaLift y lleva tus entrenamientos al siguiente nivel." />
+    <link rel="icon" href="/favicon.ico" />
   </head>
-  <body class="font-sans min-h-screen bg-gray-50 flex items-stretch">
-    <main class="flex flex-1 flex-col md:flex-row rounded-2xl overflow-hidden shadow-lg m-4 bg-white">
-      {/* Lado Izquierdo: Login */}
-      <section class="flex-1 flex flex-col justify-center items-center p-8 bg-white">
-        <h1 class="text-5xl font-black mb-8 tracking-tight"><span class="text-black">PANDA</span><span class="text-gray-400">LIFT</span></h1>
-        <div class="w-full max-w-sm">
-          <LoginForm client:load />
-          <div class="space-y-3">
-            <GoogleLogin client:load />
-          </div>
+  <body class="font-sans min-h-screen bg-gradient-to-br from-indigo-50 via-blue-100 to-slate-100 flex items-center justify-center">
+    <main class="w-full max-w-5xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-md m-4 border border-white/60">
+
+      <section class="flex-1 flex flex-col justify-center items-center p-8 bg-white/70 relative">
+        <header>
+			<h1 class="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight select-none flex items-center gap-2">
+			<span class="text-black drop-shadow">PANDA</span>
+			<span class="text-indigo-400 drop-shadow">LIFT</span>
+			</h1>
+        </header>
+        <div class="w-full max-w-xs space-y-6 flex flex-col items-center">
+          <a href="/login" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl text-lg shadow transition mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Iniciar sesión</a>
+          <a href="/signup" class="w-full block text-center bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-bold py-3 px-6 rounded-xl text-lg shadow transition focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2">Registrarse</a>
         </div>
+        <footer class="mt-8 text-xs text-gray-400 text-center w-full">
+          © {new Date().getFullYear()} PandaLift · Todos los derechos reservados
+        </footer>
       </section>
-      {/* Lado Derecho: Imagen y mensaje */}
-      <section class="hidden md:flex flex-1 flex-col justify-center items-center bg-gradient-to-br from-gray-300 to-gray-500 relative">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_30%,white,transparent_70%)]"></div>
-        <div class="relative z-10 flex flex-col items-center justify-center h-full w-full">
-          <div class="flex flex-col md:flex-row items-center justify-center gap-6 bg-white/30 rounded-2xl p-8 shadow-lg max-w-2xl border border-white/60 backdrop-blur-md">
-            <div class="flex-1 text-left">
-              <p class="text-3xl md:text-4xl font-extrabold text-white mb-0 leading-tight drop-shadow-lg">
-                Donde<br />entrenadores<br />y atletas<br />crecen juntos.
-              </p>
-            </div>
-            <div class="flex-1 flex items-center justify-center">
-              <img src="/pandalift.png" alt="Panda levantando pesas" class="w-56 md:w-64 drop-shadow-2xl rounded-2xl border-4 border-white/70 bg-white/60" />
-            </div>
+
+      <section class="flex-1 flex flex-col justify-center items-center bg-gradient-to-tr from-indigo-400 via-indigo-200 to-blue-300 relative p-8">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,white,transparent_70%)] opacity-30 pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col gap-6 items-center justify-center w-full h-full">
+          <div class="bg-white/30 rounded-2xl p-8 shadow-xl max-w-md border border-white/60 backdrop-blur-lg flex flex-col items-center">
+            <p class="text-2xl md:text-3xl font-black text-indigo-900 mb-4 leading-snug text-center drop-shadow-sm">
+              Donde<br />
+              <span class="text-indigo-400">entrenadores</span> y <span class="text-indigo-600">atletas</span><br />
+              crecen juntos.
+            </p>
+            <img 
+              src="/pandalift.png" 
+              alt="Ilustración de un panda levantando pesas" 
+              class="w-44 md:w-56 drop-shadow-2xl rounded-xl border-4 border-white/60 bg-white/70 transition-transform hover:scale-105"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
