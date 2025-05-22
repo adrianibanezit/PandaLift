@@ -1,61 +1,70 @@
 ---
-// src/pages/index.astro
+// src/pages/login.astro
 import LoginForm from '../components/LoginForm.jsx';
 import GoogleLogin from "../components/GoogleLogin.jsx";
 import '../styles/global.css';
+const year = new Date().getFullYear();
 ---
 
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bienvenido a PandaLift</title>
-    <meta name="description" content="Donde entrenadores y atletas crecen juntos. Únete a PandaLift y lleva tus entrenamientos al siguiente nivel." />
-    <link rel="icon" href="/favicon.ico" />
+    <title>Iniciar sesión · PandaLift</title>
+    <meta name="description" content="Accede a tu cuenta en PandaLift y lleva tus entrenamientos al siguiente nivel." />
+    <link rel="icon" href="/favicon_panda.png" />
   </head>
-  <body class="font-sans min-h-screen bg-gradient-to-br from-indigo-50 via-blue-100 to-slate-100 flex items-center justify-center">
-    <main class="w-full max-w-5xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-md m-4 border border-white/60">
+  <body class="font-sans bg-[#0b1120] text-white min-h-screen antialiased flex items-center justify-center relative">
 
-      <section class="flex-1 flex flex-col justify-center items-center p-8 bg-white/70 relative">
-        <header>
-			<h1 class="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight select-none flex items-center gap-2">
-			<span class="text-black drop-shadow">PANDA</span>
-			<span class="text-indigo-400 drop-shadow">LIFT</span>
-			</h1>
-        </header>
-        <div class="w-full max-w-xs space-y-6">
-          <LoginForm client:load />
-          <div class="flex items-center my-2">
-            <hr class="flex-1 border-gray-200" />
-            <span class="mx-2 text-gray-400 text-xs">o</span>
-            <hr class="flex-1 border-gray-200" />
-          </div>
-          <GoogleLogin client:load />
-        </div>
-        <footer class="mt-8 text-xs text-gray-400 text-center w-full">
-          © {new Date().getFullYear()} PandaLift · Todos los derechos reservados
-        </footer>
-      </section>
+    <!-- Fondo Glow -->
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <div class="absolute left-1/2 top-0 w-[48rem] -translate-x-1/2 bg-gradient-to-tr from-blue-500/30 via-blue-600/10 to-transparent h-[40rem] blur-3xl opacity-40"></div>
+      <div class="absolute right-0 bottom-0 w-1/2 h-1/3 bg-gradient-to-tr from-blue-500/30 via-blue-400/10 to-transparent blur-2xl opacity-20"></div>
+    </div>
 
-      <section class="flex-1 flex flex-col justify-center items-center bg-gradient-to-tr from-indigo-400 via-indigo-200 to-blue-300 relative p-8">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,white,transparent_70%)] opacity-30 pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col gap-6 items-center justify-center w-full h-full">
-          <div class="bg-white/30 rounded-2xl p-8 shadow-xl max-w-md border border-white/60 backdrop-blur-lg flex flex-col items-center">
-            <p class="text-2xl md:text-3xl font-black text-indigo-900 mb-4 leading-snug text-center drop-shadow-sm">
-              Donde<br />
-              <span class="text-indigo-400">entrenadores</span> y <span class="text-indigo-600">atletas</span><br />
-              crecen juntos.
-            </p>
-            <img 
-              src="/pandalift.png" 
-              alt="Ilustración de un panda levantando pesas" 
-              class="w-44 md:w-56 drop-shadow-2xl rounded-xl border-4 border-white/60 bg-white/70 transition-transform hover:scale-105"
-              loading="lazy"
-            />
+    <main class="w-full min-h-screen flex items-center justify-center px-4">
+      <div class="w-full max-w-4xl mx-auto flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-white/5 backdrop-blur-md">
+
+        <!-- Izquierda: Login Form -->
+        <section class="flex-1 flex flex-col justify-center items-center p-10 bg-transparent relative">
+          <header class="mb-8">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-2">
+              <span class="text-white drop-shadow">PANDA</span>
+              <span class="text-blue-400 drop-shadow">LIFT</span>
+            </h1>
+          </header>
+          <div class="w-full max-w-xs space-y-6">
+            <LoginForm client:load />
+            <div class="flex items-center my-2">
+              <hr class="flex-1 border-slate-700" />
+              <span class="mx-2 text-slate-500 text-xs">o</span>
+              <hr class="flex-1 border-slate-700" />
+            </div>
+            <GoogleLogin client:load />
           </div>
-        </div>
-      </section>
+          <footer class="mt-10 text-xs text-slate-500 text-center w-full">
+            © {year} PandaLift · Todos los derechos reservados
+          </footer>
+        </section>
+
+        <!-- Derecha: Branding y Welcome -->
+        <section class="flex-1 flex flex-col justify-center items-center bg-gradient-to-tr from-blue-900/70 via-blue-800/50 to-slate-900/70 relative p-10">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,white,transparent_70%)] opacity-10 pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col gap-6 items-center justify-center w-full h-full">
+              <p class="text-2xl md:text-3xl font-black text-white mb-4 leading-snug text-center drop-shadow">
+                Donde<br />
+                <span class="text-blue-400">entrenadores</span> y <span class="text-blue-500">atletas</span><br />
+                crecen juntos.
+              </p>
+              <img 
+                src="/pandalift.png" 
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
 </html>
-

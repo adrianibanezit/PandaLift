@@ -95,72 +95,83 @@ export default function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white rounded-xl shadow-md" aria-label="Formulario de registro">
-      <h2 className="text-2xl font-bold mb-4">Registro</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-md w-full mx-auto p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-slate-700 shadow-xl flex flex-col gap-6"
+      aria-label="Formulario de registro"
+    >
+      <h2 className="text-2xl font-extrabold text-white mb-2 text-center tracking-tight">
+        Registro
+      </h2>
 
-      {error && <p className="text-red-500 mb-4">{error}</p>}
+      {error && (
+        <div className="bg-red-600/10 border border-red-800 text-red-400 text-sm py-2 px-4 rounded mb-2 text-center">
+          {error}
+        </div>
+      )}
 
-      <div className="mb-4">
-        <label htmlFor="nombre" className="block mb-1 font-medium">Nombre</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="nombre" className="text-sm text-slate-400 pl-1">Nombre</label>
         <input
           id="nombre"
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
           required
-          aria-label="Nombre"
+          placeholder="Nombre"
         />
       </div>
 
-      <div className="mb-4">
-        <label htmlFor="apellidos" className="block mb-1 font-medium">Apellidos</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="apellidos" className="text-sm text-slate-400 pl-1">Apellidos</label>
         <input
           id="apellidos"
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           value={apellidos}
           onChange={(e) => setApellidos(e.target.value)}
           required
-          aria-label="Apellidos"
+          placeholder="Apellidos"
         />
       </div>
 
-      <div className="mb-4">
-        <label htmlFor="email" className="block mb-1 font-medium">Email</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="email" className="text-sm text-slate-400 pl-1">Correo electrónico</label>
         <input
           id="email"
           type="email"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          aria-label="Correo electrónico"
+          placeholder="tu@email.com"
+          autoComplete="username"
         />
       </div>
 
-      <div className="mb-4">
-        <label htmlFor="password" className="block mb-1 font-medium">Contraseña</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="password" className="text-sm text-slate-400 pl-1">Contraseña</label>
         <input
           id="password"
           type="password"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          aria-label="Contraseña"
+          placeholder="••••••••"
+          autoComplete="new-password"
         />
       </div>
 
-      <div className="mb-4">
-        <label htmlFor="rol" className="block mb-1 font-medium">Rol</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="rol" className="text-sm text-slate-400 pl-1">Rol</label>
         <select
           id="rol"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           value={rol}
           onChange={(e) => setRol(e.target.value)}
           required
-          aria-label="Rol"
         >
           <option value="atleta">Atleta</option>
           <option value="entrenador">Entrenador</option>
@@ -170,91 +181,91 @@ export default function SignupForm() {
       {/* Campos adicionales según el rol */}
       {rol === 'atleta' && (
         <>
-          <div className="mb-4">
-            <label htmlFor="edad" className="block mb-1 font-medium">Edad</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="edad" className="text-sm text-slate-400 pl-1">Edad</label>
             <input
               id="edad"
               type="number"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               value={edad}
               onChange={e => setEdad(e.target.value)}
               min="10"
               max="100"
-              aria-label="Edad"
+              placeholder="Edad"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="peso" className="block mb-1 font-medium">Peso (kg)</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="peso" className="text-sm text-slate-400 pl-1">Peso (kg)</label>
             <input
               id="peso"
               type="number"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               value={peso}
               onChange={e => setPeso(e.target.value)}
               min="20"
               max="300"
-              aria-label="Peso"
+              placeholder="Peso"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="altura" className="block mb-1 font-medium">Altura (cm)</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="altura" className="text-sm text-slate-400 pl-1">Altura (cm)</label>
             <input
               id="altura"
               type="number"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               value={altura}
               onChange={e => setAltura(e.target.value)}
               min="100"
               max="250"
-              aria-label="Altura"
+              placeholder="Altura"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="experiencia" className="block mb-1 font-medium">Nivel de experiencia</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="experiencia" className="text-sm text-slate-400 pl-1">Nivel de experiencia</label>
             <input
               id="experiencia"
               type="text"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               value={experiencia}
               onChange={e => setExperiencia(e.target.value)}
-              aria-label="Nivel de experiencia"
+              placeholder="Principiante, Intermedio, Avanzado…"
             />
           </div>
         </>
       )}
       {rol === 'entrenador' && (
         <>
-          <div className="mb-4">
-            <label htmlFor="certificaciones" className="block mb-1 font-medium">Certificaciones</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="certificaciones" className="text-sm text-slate-400 pl-1">Certificaciones</label>
             <input
               id="certificaciones"
               type="text"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               value={certificaciones}
               onChange={e => setCertificaciones(e.target.value)}
-              aria-label="Certificaciones"
+              placeholder="Certificaciones"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="especialidades" className="block mb-1 font-medium">Especialidades</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="especialidades" className="text-sm text-slate-400 pl-1">Especialidades</label>
             <input
               id="especialidades"
               type="text"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               value={especialidades}
               onChange={e => setEspecialidades(e.target.value)}
-              aria-label="Especialidades"
+              placeholder="Especialidades"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="experiencia" className="block mb-1 font-medium">Años de experiencia</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="experiencia" className="text-sm text-slate-400 pl-1">Años de experiencia</label>
             <input
               id="experiencia"
               type="text"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 bg-[#151d32] border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               value={experiencia}
               onChange={e => setExperiencia(e.target.value)}
-              aria-label="Años de experiencia"
+              placeholder="Años de experiencia"
             />
           </div>
         </>
@@ -262,32 +273,35 @@ export default function SignupForm() {
 
       <button
         type="submit"
-        className="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
+        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg shadow transition text-lg mt-2"
         aria-label="Registrarse"
       >
         Registrarse
       </button>
 
-      <div className="mt-4 text-center">
-        <p className="mb-2 text-gray-600">O regístrate con:</p>
-        <button
-          type="button"
-          onClick={handleGoogleSignup}
-          className="w-full bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 py-2 px-4 rounded flex items-center justify-center gap-2 shadow"
-          aria-label="Registrarse con Google"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" className="inline-block align-middle">
-            <g>
-              <path fill="#4285F4" d="M24 9.5c3.54 0 6.7 1.22 9.19 3.23l6.86-6.86C36.13 2.39 30.45 0 24 0 14.82 0 6.91 5.8 2.69 14.09l7.98 6.2C12.36 13.41 17.68 9.5 24 9.5z"/>
-              <path fill="#34A853" d="M46.1 24.55c0-1.64-.15-3.22-.42-4.74H24v9.01h12.42c-.54 2.9-2.18 5.36-4.65 7.01l7.19 5.59C43.98 37.13 46.1 31.3 46.1 24.55z"/>
-              <path fill="#FBBC05" d="M10.67 28.29c-1.13-3.36-1.13-6.97 0-10.33l-7.98-6.2C.99 16.09 0 19.94 0 24c0 4.06.99 7.91 2.69 12.24l7.98-6.2z"/>
-              <path fill="#EA4335" d="M24 48c6.45 0 12.13-2.13 16.54-5.8l-7.19-5.59c-2.01 1.35-4.59 2.15-7.35 2.15-6.32 0-11.64-3.91-13.33-9.29l-7.98 6.2C6.91 42.2 14.82 48 24 48z"/>
-              <path fill="none" d="M0 0h48v48H0z"/>
-            </g>
-          </svg>
-          Google
-        </button>
+      <div className="flex items-center my-2">
+        <hr className="flex-1 border-slate-700" />
+        <span className="mx-2 text-slate-500 text-xs">o</span>
+        <hr className="flex-1 border-slate-700" />
       </div>
+
+      <button
+        type="button"
+        onClick={handleGoogleSignup}
+        className="w-full bg-white/10 hover:bg-white/20 border border-slate-700 text-slate-200 font-semibold py-3 rounded-lg flex items-center justify-center gap-2 shadow transition"
+        aria-label="Registrarse con Google"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" className="inline-block align-middle">
+          <g>
+            <path fill="#4285F4" d="M24 9.5c3.54 0 6.7 1.22 9.19 3.23l6.86-6.86C36.13 2.39 30.45 0 24 0 14.82 0 6.91 5.8 2.69 14.09l7.98 6.2C12.36 13.41 17.68 9.5 24 9.5z"/>
+            <path fill="#34A853" d="M46.1 24.55c0-1.64-.15-3.22-.42-4.74H24v9.01h12.42c-.54 2.9-2.18 5.36-4.65 7.01l7.19 5.59C43.98 37.13 46.1 31.3 46.1 24.55z"/>
+            <path fill="#FBBC05" d="M10.67 28.29c-1.13-3.36-1.13-6.97 0-10.33l-7.98-6.2C.99 16.09 0 19.94 0 24c0 4.06.99 7.91 2.69 12.24l7.98-6.2z"/>
+            <path fill="#EA4335" d="M24 48c6.45 0 12.13-2.13 16.54-5.8l-7.19-5.59c-2.01 1.35-4.59 2.15-7.35 2.15-6.32 0-11.64-3.91-13.33-9.29l-7.98 6.2C6.91 42.2 14.82 48 24 48z"/>
+            <path fill="none" d="M0 0h48v48H0z"/>
+          </g>
+        </svg>
+        Google
+      </button>
     </form>
   );
 }

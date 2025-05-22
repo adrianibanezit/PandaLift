@@ -1,54 +1,88 @@
 ---
 // src/pages/index.astro
 import '../styles/global.css';
+const year = new Date().getFullYear();
 ---
 
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bienvenido a PandaLift</title>
+    <title>PandaLift</title>
     <meta name="description" content="Donde entrenadores y atletas crecen juntos. Únete a PandaLift y lleva tus entrenamientos al siguiente nivel." />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon_panda.png" type="image/png" />
   </head>
-  <body class="font-sans min-h-screen bg-gradient-to-br from-indigo-50 via-blue-100 to-slate-100 flex items-center justify-center">
-    <main class="w-full max-w-5xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-md m-4 border border-white/60">
+  <body class="font-sans bg-[#0b1120] text-white antialiased relative">
+    <!-- Fondo glow -->
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <div class="absolute left-1/2 top-0 w-[72rem] -translate-x-1/2 bg-gradient-to-tr from-blue-500/30 via-blue-600/10 to-transparent h-[40rem] blur-3xl opacity-40"></div>
+      <div class="absolute right-0 bottom-0 w-1/2 h-1/3 bg-gradient-to-tr from-blue-500/30 via-blue-400/10 to-transparent blur-2xl opacity-30"></div>
+    </div>
 
-      <section class="flex-1 flex flex-col justify-center items-center p-8 bg-white/70 relative">
-        <header>
-			<h1 class="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight select-none flex items-center gap-2">
-			<span class="text-black drop-shadow">PANDA</span>
-			<span class="text-indigo-400 drop-shadow">LIFT</span>
-			</h1>
-        </header>
-        <div class="w-full max-w-xs space-y-6 flex flex-col items-center">
-          <a href="/login" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl text-lg shadow transition mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Iniciar sesión</a>
-          <a href="/signup" class="w-full block text-center bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-bold py-3 px-6 rounded-xl text-lg shadow transition focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2">Registrarse</a>
-        </div>
-        <footer class="mt-8 text-xs text-gray-400 text-center w-full">
-          © {new Date().getFullYear()} PandaLift · Todos los derechos reservados
-        </footer>
-      </section>
+    <!-- Navbar -->
+    <header class="w-full px-6 py-4 flex justify-between items-center max-w-6xl mx-auto">
+      <div class="flex items-center gap-2">
+        <img src="/favicon_panda.png" class="h-8 w-8" alt="Logo PandaLift" />
+        <span class="font-extrabold text-2xl tracking-tight text-white drop-shadow">Panda<span class="text-blue-400">Lift</span></span>
+      </div>
+      <nav class="hidden md:flex gap-8">
+        <a href="/features" class="hover:text-blue-400 transition">Características</a>
+        <a href="/about" class="hover:text-blue-400 transition">Sobre Nosotros</a>
+        <a href="/contact" class="hover:text-blue-400 transition">Contacto</a>
+      </nav>
+      <div class="flex gap-2">
+        <a href="/login" class="py-2 px-4 rounded-lg border border-blue-400 text-blue-400 font-semibold hover:bg-blue-400/20 transition">Iniciar sesión</a>
+        <a href="/signup" class="py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-600 font-semibold text-white shadow transition">Empieza gratis</a>
+      </div>
+    </header>
 
-      <section class="flex-1 flex flex-col justify-center items-center bg-gradient-to-tr from-indigo-400 via-indigo-200 to-blue-300 relative p-8">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,white,transparent_70%)] opacity-30 pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col gap-6 items-center justify-center w-full h-full">
-          <div class="bg-white/30 rounded-2xl p-8 shadow-xl max-w-md border border-white/60 backdrop-blur-lg flex flex-col items-center">
-            <p class="text-2xl md:text-3xl font-black text-indigo-900 mb-4 leading-snug text-center drop-shadow-sm">
-              Donde<br />
-              <span class="text-indigo-400">entrenadores</span> y <span class="text-indigo-600">atletas</span><br />
-              crecen juntos.
-            </p>
-            <img 
-              src="/pandalift.png" 
-              alt="Ilustración de un panda levantando pesas" 
-              class="w-44 md:w-56 drop-shadow-2xl rounded-xl border-4 border-white/60 bg-white/70 transition-transform hover:scale-105"
-              loading="lazy"
-            />
-          </div>
+    <!-- HERO SECTION -->
+    <main class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between pt-10 md:pt-24 pb-10">
+      <div class="flex-1 flex flex-col items-start justify-center z-10">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
+          <span class="text-white">La plataforma de <span class="text-blue-400">halterofilia</span> profesional</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-lg">
+          Gestiona tus entrenamientos, haz seguimiento de tu progreso y conecta con la comunidad de halterofilia desde cualquier lugar.
+        </p>
+        <div class="flex gap-4 w-full max-w-xs">
+          <a href="/signup" class="flex-1 block text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg text-lg shadow transition">Empieza gratis</a>
+          <a href="/login" class="flex-1 block text-center bg-transparent border border-blue-400 text-blue-400 font-semibold py-3 px-6 rounded-lg text-lg shadow hover:bg-blue-400/10 transition">Iniciar sesión</a>
         </div>
-      </section>
+      </div>
+      <div class="flex-1 flex items-center justify-center mt-10 md:mt-0">
+        <img src="/pandalift.png" alt="Panda levantando pesas" loading="lazy" />
+      </div>
     </main>
+
+    <!-- FEATURES SECTION -->
+    <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-8">
+      <div class="bg-white/5 rounded-2xl border border-slate-800 p-8 flex flex-col items-center text-center shadow transition hover:scale-105 hover:border-blue-400">
+        <span class="text-4xl mb-4">🏋️‍♂️</span>
+        <h3 class="font-bold text-lg mb-2 text-white">Rutinas personalizadas</h3>
+        <p class="text-slate-300">Crea y sigue planes de entrenamiento adaptados a tus objetivos y nivel.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl border border-slate-800 p-8 flex flex-col items-center text-center shadow transition hover:scale-105 hover:border-blue-400">
+        <span class="text-4xl mb-4">📈</span>
+        <h3 class="font-bold text-lg mb-2 text-white">Progreso y estadísticas</h3>
+        <p class="text-slate-300">Visualiza tu evolución con gráficas y análisis detallados de tu rendimiento.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl border border-slate-800 p-8 flex flex-col items-center text-center shadow transition hover:scale-105 hover:border-blue-400">
+        <span class="text-4xl mb-4">🤝</span>
+        <h3 class="font-bold text-lg mb-2 text-white">Comunidad y coaching</h3>
+        <p class="text-slate-300">Conecta con entrenadores y otros atletas para recibir feedback y motivación.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl border border-slate-800 p-8 flex flex-col items-center text-center shadow transition hover:scale-105 hover:border-blue-400">
+        <span class="text-4xl mb-4">🔒</span>
+        <h3 class="font-bold text-lg mb-2 text-white">Privacidad y seguridad</h3>
+        <p class="text-slate-300">Tus datos están protegidos y solo tú decides quién puede ver tu información.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-20 py-8 text-center text-xs text-slate-400 bg-transparent border-t border-slate-800">
+      © {year} PandaLift · Todos los derechos reservados
+    </footer>
   </body>
 </html>
-
