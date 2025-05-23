@@ -1,0 +1,17 @@
+---
+// src/layouts/BaseLayout.astro
+const { title = "PandaLift", description = "" } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon_panda.png" type="image/png" />
+  </head>
+  <body class="font-sans bg-[#0b1120] text-white antialiased relative">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,13 @@
+---
+// src/components/Footer.astro
+const year = new Date().getFullYear();
+---
+<footer class="mt-20 py-8 text-center text-xs text-slate-400 bg-transparent border-t border-slate-800 space-y-1">
+  <p>© {year} PandaLift · Todos los derechos reservados</p>
+  <p class="flex items-center justify-center gap-1">
+    Desarrollado con
+    <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-400 hover:underline">
+        <img src="/svg/astro.svg" alt="Astro" class="w-4 h-4 text-blue-400" />
+    </a>
+  </p>
+</footer>

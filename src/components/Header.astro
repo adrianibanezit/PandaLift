@@ -1,0 +1,18 @@
+---
+// src/components/Header.astro
+---
+<header class="sticky top-0 z-50 w-full px-6 py-4 flex justify-between items-center max-w-6xl mx-auto bg-[#0b1120]/80 backdrop-blur">
+  <div class="flex items-center gap-2">
+    <img src="/favicon_panda.png" class="h-8 w-8" alt="Logo PandaLift" />
+    <span class="font-extrabold text-2xl tracking-tight text-white drop-shadow">Panda<span class="text-blue-400">Lift</span></span>
+  </div>
+  <nav class="hidden md:flex gap-8">
+    <a href="#features" class="hover:text-blue-400 transition">Características</a>
+    <a href="#about" class="hover:text-blue-400 transition">Sobre Nosotros</a>
+    <a href="#contact" class="hover:text-blue-400 transition">Contacto</a>
+  </nav>
+  <div class="flex gap-2">
+    <a href="/login" class="py-2 px-4 rounded-lg border border-blue-400 text-blue-400 font-semibold hover:bg-blue-400/20 transition">Iniciar sesión</a>
+    <a href="/signup" class="py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-600 font-semibold text-white shadow transition">Empieza gratis</a>
+  </div>
+</header>

@@ -1,54 +1,24 @@
 ---
 // src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import About from '../components/About.astro'; 
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
 import '../styles/global.css';
 ---
-
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bienvenido a PandaLift</title>
-    <meta name="description" content="Donde entrenadores y atletas crecen juntos. Únete a PandaLift y lleva tus entrenamientos al siguiente nivel." />
-    <link rel="icon" href="/favicon.ico" />
-  </head>
-  <body class="font-sans min-h-screen bg-gradient-to-br from-indigo-50 via-blue-100 to-slate-100 flex items-center justify-center">
-    <main class="w-full max-w-5xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-md m-4 border border-white/60">
-
-      <section class="flex-1 flex flex-col justify-center items-center p-8 bg-white/70 relative">
-        <header>
-			<h1 class="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight select-none flex items-center gap-2">
-			<span class="text-black drop-shadow">PANDA</span>
-			<span class="text-indigo-400 drop-shadow">LIFT</span>
-			</h1>
-        </header>
-        <div class="w-full max-w-xs space-y-6 flex flex-col items-center">
-          <a href="/login" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl text-lg shadow transition mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Iniciar sesión</a>
-          <a href="/signup" class="w-full block text-center bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-bold py-3 px-6 rounded-xl text-lg shadow transition focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2">Registrarse</a>
-        </div>
-        <footer class="mt-8 text-xs text-gray-400 text-center w-full">
-          © {new Date().getFullYear()} PandaLift · Todos los derechos reservados
-        </footer>
-      </section>
-
-      <section class="flex-1 flex flex-col justify-center items-center bg-gradient-to-tr from-indigo-400 via-indigo-200 to-blue-300 relative p-8">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,white,transparent_70%)] opacity-30 pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col gap-6 items-center justify-center w-full h-full">
-          <div class="bg-white/30 rounded-2xl p-8 shadow-xl max-w-md border border-white/60 backdrop-blur-lg flex flex-col items-center">
-            <p class="text-2xl md:text-3xl font-black text-indigo-900 mb-4 leading-snug text-center drop-shadow-sm">
-              Donde<br />
-              <span class="text-indigo-400">entrenadores</span> y <span class="text-indigo-600">atletas</span><br />
-              crecen juntos.
-            </p>
-            <img 
-              src="/pandalift.png" 
-              alt="Ilustración de un panda levantando pesas" 
-              class="w-44 md:w-56 drop-shadow-2xl rounded-xl border-4 border-white/60 bg-white/70 transition-transform hover:scale-105"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-    </main>
-  </body>
-</html>
-
+<BaseLayout title="PandaLift" description="Donde entrenadores y atletas crecen juntos. Únete a PandaLift y lleva tus entrenamientos al siguiente nivel.">
+  <!-- Fondo glow -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute left-1/2 top-0 w-[72rem] -translate-x-1/2 bg-gradient-to-tr from-blue-500/30 via-blue-600/10 to-transparent h-[40rem] blur-3xl opacity-40"></div>
+    <div class="absolute right-0 bottom-0 w-1/2 h-1/3 bg-gradient-to-tr from-blue-500/30 via-blue-400/10 to-transparent blur-2xl opacity-30"></div>
+  </div>
+  <Header />
+  <Hero />
+  <Features  />
+  <About />
+  <Contact />
+  <Footer />
+</BaseLayout>
