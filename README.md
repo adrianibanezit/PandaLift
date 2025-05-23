@@ -28,7 +28,6 @@ PandaLift es una plataforma profesional de halterofilia que conecta entrenadores
 - [React](https://reactjs.org) – Login y modales dinámicos
 - [Tailwind CSS](https://tailwindcss.com) – Estilos modernos
 - [Firebase Auth & Firestore](https://firebase.google.com) – Autenticación y datos
-- [Alpine.js](https://alpinejs.dev) (opcional) – Control de UI reactiva simple
 - [Tabler Icons](https://tabler-icons.io) – Iconografía elegante
 
 
