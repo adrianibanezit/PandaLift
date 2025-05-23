@@ -6,7 +6,7 @@ import {
   signInWithPopup,
   fetchSignInMethodsForEmail
 } from "firebase/auth";
-import { app } from '../lib/firebase';
+import { app } from '../../lib/firebase';
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 export default function LoginForm() {

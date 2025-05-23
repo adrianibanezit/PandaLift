@@ -7,7 +7,7 @@ import {
   fetchSignInMethodsForEmail
 } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { app } from '../lib/firebase';
+import { app } from '../../lib/firebase';
 
 export default function SignupForm() {
   const [nombre, setNombre] = useState('');

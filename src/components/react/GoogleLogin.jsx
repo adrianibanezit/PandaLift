@@ -1,6 +1,6 @@
 // src/components/GoogleLogin.jsx
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { app } from "../lib/firebase"; // asegúrate de exportar `app` en firebase.ts
+import { app } from "../../lib/firebase"; // asegúrate de exportar `app` en firebase.ts
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
