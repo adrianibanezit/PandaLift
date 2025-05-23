@@ -1,0 +1,28 @@
+name: Preview Deploy on develop
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  preview-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm install
+      - run: npm run build
+
+      - name: Deploy to Firebase Preview Channel
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          projectId: 'tu-proyecto-id'
+          channelId: preview
