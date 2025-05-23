@@ -35,8 +35,3 @@ PandaLift es una plataforma profesional de halterofilia que conecta entrenadores
 ## 🪪 Licencia
 
 Este proyecto está licenciado bajo la [MIT License](LICENSE).
-
----
-
-Desarrollado con ❤️ usando  
-[![Astro](https://astro.build/assets/brand/logo-light.svg)](https://astro.build)
