@@ -1,0 +1,4 @@
+<!-- public/svg/privacy.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24">
+  <path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zM11 14h2v2h-2v-2zm0-6h2v4h-2V8z"/>
+</svg>
