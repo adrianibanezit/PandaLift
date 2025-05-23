@@ -1,88 +1,24 @@
 ---
 // src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import About from '../components/About.astro'; 
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
 import '../styles/global.css';
-const year = new Date().getFullYear();
 ---
-
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PandaLift</title>
-    <meta name="description" content="Donde entrenadores y atletas crecen juntos. Únete a PandaLift y lleva tus entrenamientos al siguiente nivel." />
-    <link rel="icon" href="/favicon_panda.png" type="image/png" />
-  </head>
-  <body class="font-sans bg-[#0b1120] text-white antialiased relative">
-    <!-- Fondo glow -->
-    <div class="absolute inset-0 -z-10 overflow-hidden">
-      <div class="absolute left-1/2 top-0 w-[72rem] -translate-x-1/2 bg-gradient-to-tr from-blue-500/30 via-blue-600/10 to-transparent h-[40rem] blur-3xl opacity-40"></div>
-      <div class="absolute right-0 bottom-0 w-1/2 h-1/3 bg-gradient-to-tr from-blue-500/30 via-blue-400/10 to-transparent blur-2xl opacity-30"></div>
-    </div>
-
-    <!-- Navbar -->
-    <header class="w-full px-6 py-4 flex justify-between items-center max-w-6xl mx-auto">
-      <div class="flex items-center gap-2">
-        <img src="/favicon_panda.png" class="h-8 w-8" alt="Logo PandaLift" />
-        <span class="font-extrabold text-2xl tracking-tight text-white drop-shadow">Panda<span class="text-blue-400">Lift</span></span>
-      </div>
-      <nav class="hidden md:flex gap-8">
-        <a href="/features" class="hover:text-blue-400 transition">Características</a>
-        <a href="/about" class="hover:text-blue-400 transition">Sobre Nosotros</a>
-        <a href="/contact" class="hover:text-blue-400 transition">Contacto</a>
-      </nav>
-      <div class="flex gap-2">
-        <a href="/login" class="py-2 px-4 rounded-lg border border-blue-400 text-blue-400 font-semibold hover:bg-blue-400/20 transition">Iniciar sesión</a>
-        <a href="/signup" class="py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-600 font-semibold text-white shadow transition">Empieza gratis</a>
-      </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <main class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between pt-10 md:pt-24 pb-10">
-      <div class="flex-1 flex flex-col items-start justify-center z-10">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
-          <span class="text-white">La plataforma de <span class="text-blue-400">halterofilia</span> profesional</span>
-        </h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-lg">
-          Gestiona tus entrenamientos, haz seguimiento de tu progreso y conecta con la comunidad de halterofilia desde cualquier lugar.
-        </p>
-        <div class="flex gap-4 w-full max-w-xs">
-          <a href="/signup" class="flex-1 block text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg text-lg shadow transition">Empieza gratis</a>
-          <a href="/login" class="flex-1 block text-center bg-transparent border border-blue-400 text-blue-400 font-semibold py-3 px-6 rounded-lg text-lg shadow hover:bg-blue-400/10 transition">Iniciar sesión</a>
-        </div>
-      </div>
-      <div class="flex-1 flex items-center justify-center mt-10 md:mt-0">
-        <img src="/pandalift.png" alt="Panda levantando pesas" loading="lazy" />
-      </div>
-    </main>
-
-    <!-- FEATURES SECTION -->
-    <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-8">
-      <div class="bg-white/5 rounded-2xl border border-slate-800 p-8 flex flex-col items-center text-center shadow transition hover:scale-105 hover:border-blue-400">
-        <span class="text-4xl mb-4">🏋️‍♂️</span>
-        <h3 class="font-bold text-lg mb-2 text-white">Rutinas personalizadas</h3>
-        <p class="text-slate-300">Crea y sigue planes de entrenamiento adaptados a tus objetivos y nivel.</p>
-      </div>
-      <div class="bg-white/5 rounded-2xl border border-slate-800 p-8 flex flex-col items-center text-center shadow transition hover:scale-105 hover:border-blue-400">
-        <span class="text-4xl mb-4">📈</span>
-        <h3 class="font-bold text-lg mb-2 text-white">Progreso y estadísticas</h3>
-        <p class="text-slate-300">Visualiza tu evolución con gráficas y análisis detallados de tu rendimiento.</p>
-      </div>
-      <div class="bg-white/5 rounded-2xl border border-slate-800 p-8 flex flex-col items-center text-center shadow transition hover:scale-105 hover:border-blue-400">
-        <span class="text-4xl mb-4">🤝</span>
-        <h3 class="font-bold text-lg mb-2 text-white">Comunidad y coaching</h3>
-        <p class="text-slate-300">Conecta con entrenadores y otros atletas para recibir feedback y motivación.</p>
-      </div>
-      <div class="bg-white/5 rounded-2xl border border-slate-800 p-8 flex flex-col items-center text-center shadow transition hover:scale-105 hover:border-blue-400">
-        <span class="text-4xl mb-4">🔒</span>
-        <h3 class="font-bold text-lg mb-2 text-white">Privacidad y seguridad</h3>
-        <p class="text-slate-300">Tus datos están protegidos y solo tú decides quién puede ver tu información.</p>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="mt-20 py-8 text-center text-xs text-slate-400 bg-transparent border-t border-slate-800">
-      © {year} PandaLift · Todos los derechos reservados
-    </footer>
-  </body>
-</html>
+<BaseLayout title="PandaLift" description="Donde entrenadores y atletas crecen juntos. Únete a PandaLift y lleva tus entrenamientos al siguiente nivel.">
+  <!-- Fondo glow -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute left-1/2 top-0 w-[72rem] -translate-x-1/2 bg-gradient-to-tr from-blue-500/30 via-blue-600/10 to-transparent h-[40rem] blur-3xl opacity-40"></div>
+    <div class="absolute right-0 bottom-0 w-1/2 h-1/3 bg-gradient-to-tr from-blue-500/30 via-blue-400/10 to-transparent blur-2xl opacity-30"></div>
+  </div>
+  <Header />
+  <Hero />
+  <Features  />
+  <About />
+  <Contact />
+  <Footer />
+</BaseLayout>
